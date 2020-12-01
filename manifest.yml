@@ -1,8 +1,8 @@
- applications:
- - name: anecdotes
-     path: ./build
-     buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
-     random-route: true
-     memory: 256M
-     env:
-     FORCE_HTTPS: true
+applications:
+- name: anecdotes
+  path: ./build
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  random-route: true
+  memory: 256M
+  env:
+    FORCE_HTTPS: true
