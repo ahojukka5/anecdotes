@@ -1,5 +1,5 @@
 applications:
-- name: anecdotes2
+- name: anecdotes
   path: ./build
   buildpacks:
     - https://github.com/cloudfoundry/staticfile-buildpack.git
