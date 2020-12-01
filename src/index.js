@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-const Button = ({onClick, text}) => <button onClick={onClick}>{text}</button>;
+const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>;
 
-const App = props => {
+const App = (props) => {
   const [selected, setSelected] = useState(0);
   const [votes, setVotes] = useState({});
 
@@ -12,7 +12,7 @@ const App = props => {
   };
 
   const onVote = () => {
-    const copy = {...votes};
+    const copy = { ...votes };
     copy[selected] = (copy[selected] || 0) + 1;
     setVotes(copy);
   };
@@ -20,7 +20,7 @@ const App = props => {
   let maxVoteIndex = -1;
   let maxVote = 0;
 
-  Object.keys(votes).forEach(key => {
+  Object.keys(votes).forEach((key) => {
     if (votes[key] > maxVote) {
       maxVoteIndex = key;
       maxVote = votes[key];
