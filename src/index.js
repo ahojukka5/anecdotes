@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-
-const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>;
+import 'semantic-ui-css/semantic.min.css';
+import { Button, Container, Header } from 'semantic-ui-react';
 
 const App = (props) => {
   const [selected, setSelected] = useState(0);
@@ -30,14 +30,16 @@ const App = (props) => {
   console.log('votes', votes, 'maxVoteIndex ', maxVoteIndex);
 
   return (
-    <div>
-      <h1>Anecdote of the day</h1>
-      <p>{props.anecdotes[selected]}</p>
-      <p>has {votes[selected] || 0} votes</p>
-      <Button onClick={onVote} text="vote" />
-      <Button onClick={onNext} text="next anecdote" />
-      <h1>Anecdote with most votes ({maxVote} votes)</h1>
-      <p>{props.anecdotes[maxVoteIndex]}</p>
+    <div className="app">
+      <Container>
+        <Header as="h1">Anecdote of the day</Header>
+        <p>{props.anecdotes[selected]}</p>
+        <p>has {votes[selected] || 0} votes</p>
+        <Button onClick={onVote}>vote</Button>
+        <Button onClick={onNext}>next anecdote</Button>
+        <Header as="h2">Anecdote with most votes ({maxVote} votes)</Header>
+        <p>{props.anecdotes[maxVoteIndex]}</p>
+      </Container>
     </div>
   );
 };
