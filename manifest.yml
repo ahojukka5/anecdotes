@@ -2,8 +2,10 @@ applications:
 - name: anecdotes
   path: ./build
   buildpacks:
-    - https://github.com/cloudfoundry/staticfile-buildpack.git
-  random-route: false
-  memory: 256M
-  env:
-    FORCE_HTTPS: true
+    - staticfile_buildpack
+  disk_quota: 128M
+  instances: 1
+  memory: 128M
+  routes:
+    - route: anecdotes.ahojukka5.com
+  stack: cflinuxfs3
