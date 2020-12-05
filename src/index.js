@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import 'semantic-ui-css/semantic.min.css';
-import { Button, Container, Header } from 'semantic-ui-react';
+import { Button, Divider, Container, Header, Segment } from 'semantic-ui-react';
+
+import anecdotes from './data/anecdotes';
 
 const App = (props) => {
   const [selected, setSelected] = useState(0);
@@ -31,26 +33,36 @@ const App = (props) => {
 
   return (
     <div className="app">
-      <Container>
-        <Header as="h1">Anecdote of the day</Header>
-        <p>{props.anecdotes[selected]}</p>
-        <p>has {votes[selected] || 0} votes</p>
-        <Button onClick={onVote}>vote</Button>
-        <Button onClick={onNext}>next anecdote</Button>
-        <Header as="h2">Anecdote with most votes ({maxVote} votes)</Header>
-        <p>{props.anecdotes[maxVoteIndex]}</p>
+      <Container text>
+        <Divider hidden />
+        <Header as="h1" attached="top" block>
+          Anecdote of the day
+        </Header>
+        <Segment attached style={{ minHeight: '5em' }}>
+          <Header as="h4" style={{ paddingTop: '1em', paddingLeft: '2em' }}>
+            "{props.anecdotes[selected]}"
+          </Header>
+          <p>Anecdote has {votes[selected] || 0} votes.</p>
+          <Divider />
+          <Button onClick={onVote}>vote</Button>
+          <Button onClick={onNext}>next</Button>
+        </Segment>
+        {maxVoteIndex !== -1 && (
+          <>
+            <Header as="h2" attached="top" block>
+              Anecdote with most votes
+            </Header>
+            <Segment attached style={{ minHeight: '5em' }}>
+              <Header as="h4" style={{ paddingTop: '1em', paddingLeft: '2em' }}>
+                "{props.anecdotes[maxVoteIndex]}"
+              </Header>
+              <p>Anecdote has {votes[selected] || 0} votes.</p>
+            </Segment>
+          </>
+        )}
       </Container>
     </div>
   );
 };
-
-const anecdotes = [
-  'If it hurts, do it more often',
-  'Adding manpower to a late software project makes it later!',
-  'The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
-  'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
-  'Premature optimization is the root of all evil.',
-  'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
-];
 
 ReactDOM.render(<App anecdotes={anecdotes} />, document.getElementById('root'));
