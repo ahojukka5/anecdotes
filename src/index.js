@@ -39,7 +39,10 @@ const App = (props) => {
           Anecdote of the day
         </Header>
         <Segment attached>
-          <Header as="h4" style={{ minHeight: '9em', paddingTop: '1em', paddingLeft: '2em' }}>
+          <Header
+            as="h4"
+            style={{ minHeight: '9em', paddingTop: '1em', paddingLeft: '2em' }}
+          >
             "{props.anecdotes[selected]}"
           </Header>
           <p>Anecdote has {votes[selected] || 0} votes.</p>
@@ -53,7 +56,14 @@ const App = (props) => {
               Anecdote with most votes
             </Header>
             <Segment attached>
-              <Header as="h4" style={{ minHeight: '9em', paddingTop: '1em', paddingLeft: '2em' }}>
+              <Header
+                as="h4"
+                style={{
+                  minHeight: '9em',
+                  paddingTop: '1em',
+                  paddingLeft: '2em',
+                }}
+              >
                 "{props.anecdotes[maxVoteIndex]}"
               </Header>
               <p>Anecdote has {maxVote} votes.</p>
