@@ -1,8 +1,8 @@
 {
-  "name": "anekdootit",
-  "homepage": "https://ahojukka5.github.io/anecdotes",
+  "name": "anecdotes",
+  "homepage": "https://anecdotes.ahojukka5.com",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
