@@ -1,6 +1,6 @@
 {
   "name": "anecdotes",
-  "homepage": "https://anecdotes.ahojukka5.com",
+  "homepage": "http://ahojukka5.github.io/anecdotes",
   "version": "1.0.0",
   "private": false,
   "dependencies": {
